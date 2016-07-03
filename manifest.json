@@ -1,0 +1,11 @@
+{
+  "name": "Test Script",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This is an example to print Hello World in Chrome console",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}
