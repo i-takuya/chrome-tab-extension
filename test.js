@@ -1,12 +1,14 @@
-var $rows = $('#table tr');
-$('#search').keyup(function() {
-    
-    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
-        reg = RegExp(val, 'i'),
-        text;
-    
-    $rows.show().filter(function() {
-        text = $(this).text().replace(/\s+/g, ' ');
-        return !reg.test(text);
+var seach = '#search',
+tag = '#table tr';
+
+$(function() {
+    $(document).on('keyup', '#search', function(e) {
+        var val =  $.trim($(search).val()).replace(/ +/g, ' ').toLowerCase();
+       
+        $(tag).show().filter(function() {
+        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+        console.log(text.indexOf(val));
+        return !~text.indexOf(val);
     }).hide();
+    });
 });
